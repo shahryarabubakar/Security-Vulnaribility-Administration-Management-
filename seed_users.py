@@ -11,13 +11,14 @@ Usage:
 import os
 import MySQLdb
 from werkzeug.security import generate_password_hash
+from config import Config
 
 DB = {
-    'host':   os.environ.get('MYSQL_HOST',     'localhost'),
-    'port':   int(os.environ.get('MYSQL_PORT', '3306')),
-    'user':   os.environ.get('MYSQL_USER',     'root'),
-    'passwd': os.environ.get('MYSQL_PASSWORD', 'leo123'),
-    'db':     os.environ.get('MYSQL_DB',       'svams'),
+    'host':   os.environ.get('MYSQL_HOST',     Config.MYSQL_HOST),
+    'port':   int(os.environ.get('MYSQL_PORT', str(Config.MYSQL_PORT))),
+    'user':   os.environ.get('MYSQL_USER',     Config.MYSQL_USER),
+    'passwd': os.environ.get('MYSQL_PASSWORD', Config.MYSQL_PASSWORD),
+    'db':     os.environ.get('MYSQL_DB',       Config.MYSQL_DB),
 }
 
 USERS = [
